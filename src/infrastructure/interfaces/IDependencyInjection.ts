@@ -1,5 +1,5 @@
-import { Container } from "inversify";
+import { ContainerType } from 'infrastructure/types/ContainerType';
 
 export interface IDependencyInjection {
-  configure(): Container;
+  configure(): ContainerType;
 }

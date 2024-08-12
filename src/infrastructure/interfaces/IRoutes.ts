@@ -1,5 +1,5 @@
-import { Router } from 'express';
+import { RouterType } from 'infrastructure/types/RouterType';
 
 export interface IRoutes {
-  readonly router: Router;
+  readonly router: RouterType;
 }

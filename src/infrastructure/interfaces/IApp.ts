@@ -1,5 +1,5 @@
-import { Express } from 'express';
+import { AppType } from 'infrastructure/types/AppType';
 
 export interface IApp {
-  createApp(): Express;
+  createApp(): AppType;
 }

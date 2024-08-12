@@ -1,5 +1,5 @@
-import { Express } from 'express';
+import { AppType } from 'infrastructure/types/AppType';
 
 export interface IMiddlewaresConfigurator {
-  configure(app: Express): void;
+  configure(app: AppType): void;
 }
