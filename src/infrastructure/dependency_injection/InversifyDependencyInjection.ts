@@ -19,6 +19,10 @@ import { IExpressShippingRequestHandler } from 'infrastructure/interfaces/IExpre
 import { ExpressShippingRequestHandler } from 'infrastructure/handlers/ExpressShippingRequestHandler';
 import { IExpressRequestParamZipCodeValidator } from 'infrastructure/interfaces/IExpressRequestParamZipCodeValidator';
 import { ExpressRequestParamZipCodeValidator } from 'infrastructure/validators/ExpressRequestParamZipCodeValidator';
+import { IExpressErrorHandler } from 'infrastructure/interfaces/IExpressErrorHandler';
+import { ExpressErrorHandler } from 'infrastructure/handlers/ExpressErrorHandler';
+import { IErrorMessages } from 'infrastructure/interfaces/IErrorMessages';
+import { ErrorMessages } from 'infrastructure/errors/ErrorMessages';
 
 export class InversifyDependencyInjection implements IDependencyInjection {
   public configure(): Container {
@@ -33,6 +37,8 @@ export class InversifyDependencyInjection implements IDependencyInjection {
     container.bind<IShippingController>('IShippingController').to(ShippingController);
     container.bind<IExpressShippingRequestHandler>('IExpressShippingRequestHandler').to(ExpressShippingRequestHandler);
     container.bind<IExpressRequestParamZipCodeValidator>('IExpressRequestParamZipCodeValidator').to(ExpressRequestParamZipCodeValidator);
+    container.bind<IExpressErrorHandler>('IExpressErrorHandler').to(ExpressErrorHandler);
+    container.bind<IErrorMessages>('IErrorMessages').to(ErrorMessages);
 
     return container;
   }

@@ -1,26 +1,26 @@
 import express, { Express } from 'express';
 import { inject, injectable } from 'inversify';
 import { IApp } from 'infrastructure/interfaces/IApp';
-import { IMiddlewaresConfigurator } from 'infrastructure/interfaces/IMiddlewaresConfigurator';
 import { IRoutesConfigurator } from 'infrastructure/interfaces/IRoutesConfigurator';
+import { IMiddlewaresConfigurator } from 'infrastructure/interfaces/IMiddlewaresConfigurator';
 
 @injectable()
 export class ExpressApp implements IApp {
-  private readonly middlewaresConfigurator: IMiddlewaresConfigurator;
   private readonly routesConfigurator: IRoutesConfigurator;
+  private readonly middlewaresConfigurator: IMiddlewaresConfigurator;
 
   constructor(
-    @inject('IMiddlewaresConfigurator') middlewaresConfigurator: IMiddlewaresConfigurator,
     @inject('IRoutesConfigurator') routesConfigurator: IRoutesConfigurator,
+    @inject('IMiddlewaresConfigurator') middlewaresConfigurator: IMiddlewaresConfigurator,
   ) {
-    this.middlewaresConfigurator = middlewaresConfigurator;
     this.routesConfigurator = routesConfigurator;
+    this.middlewaresConfigurator = middlewaresConfigurator;
   }
 
   public createApp(): Express {
     const app = express();
-    this.middlewaresConfigurator.configure(app);
     this.routesConfigurator.configure(app);
+    this.middlewaresConfigurator.configure(app);
     return app;
   }
 }

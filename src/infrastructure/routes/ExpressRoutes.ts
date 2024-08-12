@@ -21,10 +21,10 @@ export class ExpressRoutes implements IRoutes {
   }
 
   private createRoutes(): void {
-    this.router.get('/health', (request: Request, response: Response) => this.shippingRequestHandler.handleHealth(request, response));
+    this.router.get('/health', this.shippingRequestHandler.handleHealth.bind(this.shippingRequestHandler));
     this.router.get(
       '/address/:zipCode',
-      (request: Request, response: Response, next: NextFunction) => this.requestParamZipCodeValidator.validate(request, response, next),
-      (request: Request, response: Response) => response.status(200).json({ zipCode: request.params.zipCode }))
+      this.requestParamZipCodeValidator.validate.bind(this.requestParamZipCodeValidator),
+      (request: Request, response: Response) => response.status(200).json({ zipCode: request.params.zipCode }));
   }
 }
