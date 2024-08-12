@@ -2,10 +2,10 @@ import { Request, Response } from "express";
 import { inject, injectable } from "inversify";
 import { HealthDto } from "adapters/dtos/HealthDto";
 import { IShippingController } from "adapters/interfaces/IShippingController";
-import { IShippingRequestHandler } from "infrastructure/interfaces/IShippingRequestHandler";
+import { IExpressShippingRequestHandler } from "infrastructure/interfaces/IExpressShippingRequestHandler";
 
 @injectable()
-export class ShippingRequestHandler implements IShippingRequestHandler {
+export class ExpressShippingRequestHandler implements IExpressShippingRequestHandler {
   private readonly shippingController: IShippingController;
 
   constructor(@inject('IShippingController') shippingController: IShippingController) {

@@ -15,8 +15,10 @@ import { IHttpStatus } from 'adapters/interfaces/IHttpStatus';
 import { HttpStatus } from 'infrastructure/network/HttpStatus';
 import { IShippingController } from 'adapters/interfaces/IShippingController';
 import { ShippingController } from 'adapters/controllers/ShippingController';
-import { IShippingRequestHandler } from 'infrastructure/interfaces/IShippingRequestHandler';
-import { ShippingRequestHandler } from 'infrastructure/handlers/ShippingRequestHandler';
+import { IExpressShippingRequestHandler } from 'infrastructure/interfaces/IExpressShippingRequestHandler';
+import { ExpressShippingRequestHandler } from 'infrastructure/handlers/ExpressShippingRequestHandler';
+import { IExpressRequestParamZipCodeValidator } from 'infrastructure/interfaces/IExpressRequestParamZipCodeValidator';
+import { ExpressRequestParamZipCodeValidator } from 'infrastructure/validators/ExpressRequestParamZipCodeValidator';
 
 export class InversifyDependencyInjection implements IDependencyInjection {
   public configure(): Container {
@@ -29,7 +31,8 @@ export class InversifyDependencyInjection implements IDependencyInjection {
     container.bind<IRoutes>('IRoutes').to(ExpressRoutes);
     container.bind<IHttpStatus>('IHttpStatus').to(HttpStatus);
     container.bind<IShippingController>('IShippingController').to(ShippingController);
-    container.bind<IShippingRequestHandler>('IShippingRequestHandler').to(ShippingRequestHandler);
+    container.bind<IExpressShippingRequestHandler>('IExpressShippingRequestHandler').to(ExpressShippingRequestHandler);
+    container.bind<IExpressRequestParamZipCodeValidator>('IExpressRequestParamZipCodeValidator').to(ExpressRequestParamZipCodeValidator);
 
     return container;
   }
