@@ -18,7 +18,7 @@ export class ExpressErrorHandler implements IExpressErrorHandler {
     this.errorMessages = errorMessages;
   }
 
-  public handle(error: any, request: Request, response: Response, next: NextFunction): Response | void {
+  public handle(error: any, request: Request, response: Response, next: NextFunction): Response {
     if (error instanceof ZodError) {
       return this.handleZodError(error, response);
     }
@@ -26,7 +26,7 @@ export class ExpressErrorHandler implements IExpressErrorHandler {
     return this.handleUnknowError(response);
   }
 
-  private handleZodError(error: any, response: Response): Response | void {
+  private handleZodError(error: any, response: Response): Response {
     return response.status(this.httpStatus.BAD_REQUEST).json(error);
   }
 
