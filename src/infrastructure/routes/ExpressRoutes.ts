@@ -1,4 +1,4 @@
-import { Router, Request, Response, NextFunction } from "express";
+import { Router } from "express";
 import { IRoutes } from "infrastructure/interfaces/IRoutes";
 import { IExpressShippingRequestHandler } from "infrastructure/interfaces/IExpressShippingRequestHandler";
 import { inject, injectable } from "inversify";

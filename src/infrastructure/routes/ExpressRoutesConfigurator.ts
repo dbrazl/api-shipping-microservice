@@ -12,6 +12,6 @@ export class ExpressRoutesConfigurator implements IRoutesConfigurator {
   }
 
   public configure(app: Express): void {
-    app.use(this.routes.router);
+    app.use('/api/v1/shipping/', this.routes.router);
   }
 }
