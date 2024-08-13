@@ -25,10 +25,10 @@ import { IErrorMessages } from 'infrastructure/interfaces/IErrorMessages';
 import { ErrorMessages } from 'infrastructure/errors/ErrorMessages';
 import { IZodErrorTransform } from 'infrastructure/interfaces/IZodErrorTransform';
 import { ZodErrorTransform } from 'infrastructure/errors/ZodErrorTransform';
-import { ICorreiosServices } from 'application/interfaces/ICorreiosServices';
-import { CorreiosServices } from 'infrastructure/services/CorreiosServices';
 import { IGetAddressUseCase } from 'application/interfaces/IGetAddressUseCase';
 import { GetAddressUseCase } from 'application/use-cases/GetAddressUseCase';
+import { IViaCepService } from 'application/interfaces/IViaCepService';
+import { ViaCepService } from 'infrastructure/services/ViaCepService';
 
 export class InversifyDependencyInjection implements IDependencyInjection {
   public configure(): Container {
@@ -46,8 +46,8 @@ export class InversifyDependencyInjection implements IDependencyInjection {
     container.bind<IExpressErrorHandler>('IExpressErrorHandler').to(ExpressErrorHandler);
     container.bind<IErrorMessages>('IErrorMessages').to(ErrorMessages);
     container.bind<IZodErrorTransform>('IZodErrorTransform').to(ZodErrorTransform);
-    container.bind<ICorreiosServices>('ICorreiosServices').to(CorreiosServices);
     container.bind<IGetAddressUseCase>('IGetAddressUseCase').to(GetAddressUseCase);
+    container.bind<IViaCepService>('IViaCepService').to(ViaCepService);
 
     return container;
   }

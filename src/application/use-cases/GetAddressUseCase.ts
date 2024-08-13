@@ -1,17 +1,17 @@
 import { inject, injectable } from "inversify";
 import { AddressDto } from "application/dtos/AddressDto";
 import { IGetAddressUseCase } from "application/interfaces/IGetAddressUseCase";
-import { ICorreiosServices } from "application/interfaces/ICorreiosServices";
+import { IViaCepService } from "application/interfaces/IViaCepService";
 
 @injectable()
 export class GetAddressUseCase implements IGetAddressUseCase {
-  private readonly correiosService: ICorreiosServices;
+  private readonly viaCepService: IViaCepService;
 
-  constructor(@inject('ICorreiosServices') correiosService: ICorreiosServices) {
-    this.correiosService = correiosService;
+  constructor(@inject('IViaCepService') viaCepService: IViaCepService) {
+    this.viaCepService = viaCepService;
   }
 
   public async execute(zipCode: string): Promise<AddressDto> {
-    return await this.correiosService.getAddress(zipCode);
+    return await this.viaCepService.getAddress(zipCode);
   }
 }
