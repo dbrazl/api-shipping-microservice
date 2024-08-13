@@ -1,6 +1,6 @@
 {
   "name": "shipping-microservice",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "A microservice to check CEP",
   "main": "index.ts",
   "repository": "git@github.com:dbrazl/shipping-microservice.git",
