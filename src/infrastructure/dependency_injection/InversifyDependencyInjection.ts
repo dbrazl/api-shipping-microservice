@@ -23,6 +23,8 @@ import { IExpressErrorHandler } from 'infrastructure/interfaces/IExpressErrorHan
 import { ExpressErrorHandler } from 'infrastructure/handlers/ExpressErrorHandler';
 import { IErrorMessages } from 'infrastructure/interfaces/IErrorMessages';
 import { ErrorMessages } from 'infrastructure/errors/ErrorMessages';
+import { IZodErrorTransform } from 'infrastructure/interfaces/IZodErrorTransform';
+import { ZodErrorTransform } from 'infrastructure/errors/ZodErrorTransform';
 
 export class InversifyDependencyInjection implements IDependencyInjection {
   public configure(): Container {
@@ -39,6 +41,7 @@ export class InversifyDependencyInjection implements IDependencyInjection {
     container.bind<IExpressRequestParamZipCodeValidator>('IExpressRequestParamZipCodeValidator').to(ExpressRequestParamZipCodeValidator);
     container.bind<IExpressErrorHandler>('IExpressErrorHandler').to(ExpressErrorHandler);
     container.bind<IErrorMessages>('IErrorMessages').to(ErrorMessages);
+    container.bind<IZodErrorTransform>('IZodErrorTransform').to(ZodErrorTransform);
 
     return container;
   }
