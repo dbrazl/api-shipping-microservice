@@ -25,6 +25,7 @@ export class ExpressRoutes implements IRoutes {
     this.router.get(
       '/address/:zipCode',
       this.requestParamZipCodeValidator.validate.bind(this.requestParamZipCodeValidator),
-      (request: Request, response: Response) => response.status(200).json({ zipCode: request.params.zipCode }));
+      this.shippingRequestHandler.handleGetAddress.bind(this.shippingRequestHandler)
+    );
   }
 }
