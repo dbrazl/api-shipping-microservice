@@ -2,13 +2,12 @@
 
 ![Banner](https://github-dbrazl.s3.amazonaws.com/shipping-microservice-node/banner.jpg)
 
-<center>
+<p align="center">
   <img src="https://img.shields.io/badge/node-20.15.1-green">
   <img src="https://img.shields.io/badge/typescript-5.5.4-blue">
   <img src="https://img.shields.io/badge/docker-27.0.3-darkcyan">
   <img src="https://img.shields.io/badge/license-MIT-red">
-</center>
-<div style="padding-bottom: 10px"></div>
+</p>
 
 Bem-vindo a API de entrega! Este microserviço foi criado para testar inicialmente a integração com os Correios. Como o serviço SOAP dos Correios está fora do ar, integrei a API com o Via CEP usando o protocolo REST.
 
