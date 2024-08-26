@@ -91,6 +91,10 @@ O mesmo pode ser feito para a imagem. Caso algo tenha dado errado, use o comando
 docker rmi shipping-microservice
 ```
 
+## 📚 Documentação
+
+Foi optado desenvolver uma documentação simples apenas da interface de programação de aplicação. A documentação da API pode ser acessada em [DOCUMENTATION.md](./DOCUMENTATION.md).
+
 ## 💻 Design de Software
 
 Adotei os princípios do SOLID, injeção de dependência e o Clean Architecture para o desenvolvimento do microserviço.

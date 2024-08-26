@@ -1,6 +1,6 @@
-# API Documentation
+# 📚 Documentação da API
 
-## Índice
+## 📑 Índice
 
 - [Introdução](#introdução)
 - [Rotas](#rotas)
@@ -8,13 +8,12 @@
     - [GET /health](#get-health)
     - [GET /address/{zipCode}](#get-addresszipcode)
 - [Versionamento](#versionamento)
-- [Licença](#licença)
 
-## Introdução
+## 🔰 Introdução
 
 Bem-vindo a documentação da API. Esta API permite você a verificar endereços via o CEP. As rotas são desenhadas para serem RESTful e retornam respostas JSON.
 
-## Rotas
+## 🛤️ Rotas
 
 ### Expedição
 
@@ -57,14 +56,10 @@ Host: api.example.com
 }
 ```
 
-## Versionamento
+## 📦 Versionamento
 
 A API usa versionamento para manter a compatibilidade retroativa. A atual versão é a `v1`. Todos os endpoints devem ser prefixados com o número da versão.
 
 ```http
 GET /api/v1/... HTTP/1.1
 ```
-
-## Licença
-
-O projeto está sobre a licença MIT License. Veja o [LICENSE.md](./LICENSE) para mais detalhes.
