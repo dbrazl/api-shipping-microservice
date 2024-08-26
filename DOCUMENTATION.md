@@ -2,7 +2,7 @@
 
 ![Banner](https://github-dbrazl.s3.amazonaws.com/shipping-microservice-node/banner.jpg)
 
-Bem-vindo a documentação da API. Esta API permite você a verificar endereços via o CEP. As rotas são desenhadas para serem RESTful e retornam respostas JSON.
+Bem-vindo a documentação da API. Esta API permite você verifique endereços via o CEP. As rotas são desenhadas para serem RESTful e retornam respostas JSON.
 
 ## 📑 Índice
 
