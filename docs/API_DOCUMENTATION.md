@@ -1,8 +1,11 @@
-# 📚 Documentação da API
+<h1 align="center">📚 Documentação da API</h1>
 
-![Banner](https://github-dbrazl.s3.amazonaws.com/shipping-microservice-node/banner.jpg)
+![Banner](https://github-dbrazl.s3.us-east-1.amazonaws.com/api-shipping-microservice/banner.svg?v=1.0.0)
 
-Bem-vindo a documentação da API. Esta API permite você verifique endereços via o CEP. As rotas são desenhadas para serem RESTful e retornam respostas JSON.
+<p align="center">
+  Bem-vindo a documentação da API. Esta API permite você verifique endereços via o CEP. As rotas são desenhadas para serem RESTful e retornam respostas JSON.
+</p>
+<br>
 
 ## 📑 Índice
 
@@ -18,9 +21,13 @@ Bem-vindo a documentação da API. Esta API permite você verifique endereços v
 
 #### GET /health
 
-Retorna o estado atual do servidor. Se estiver online, retorna HTTP Status **OK**.
+<p align="justify">
+  Retorna o estado atual do servidor. Se estiver online, retorna HTTP Status <strong>OK</strong>.
+</p>
 
-**Exemplo de Requisição:**
+<p align="justify">
+  <strong>Exemplo de Requisição:</strong>
+</p>
 
 ```http
 GET /api/v1/shipping/health HTTP/1.1
@@ -29,20 +36,28 @@ Host: localhost:3000
 
 #### GET /address/{zipCode}
 
-Retorna o endereço relacionado ao CEP informado.
+<p align="justify">
+  Retorna o endereço relacionado ao CEP informado.
+</p>
 
-**Path Parameters:**
+<p align="justify">
+  <strong>Path Parameters:</strong>
+</p>
 
 - `zipCode`: O CEP a ser pesquisado.
 
-**Exemplo de Requisição:**
+<p align="justify">
+  <strong>Exemplo de Requisição:</strong>
+</p>
 
 ```http
 GET /api/v1/shipping/address/01310200 HTTP/1.1
 Host: api.example.com
 ```
 
-**Exemplo de Resposta:**
+<p align="justify">
+  <strong>Exemplo de Resposta:</strong>
+</p>
 
 ```json
 {
@@ -57,7 +72,9 @@ Host: api.example.com
 
 ## 📦 Versionamento
 
-A API usa versionamento para manter a compatibilidade retroativa. A atual versão é a `v1`. Todos os endpoints devem ser prefixados com o número da versão.
+<p align="justify">
+  A API usa versionamento para manter a compatibilidade retroativa. A atual versão é a <i>v1</i>. Todos os endpoints devem ser prefixados com o número da versão.
+</p>
 
 ```http
 GET /api/v1/... HTTP/1.1
