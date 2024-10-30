@@ -1,120 +1,152 @@
-# 📦 Microserviço de Entrega
+<h1 align="center">⚙️ Microserviço de Entrega</h1>
+<br>
 
-![Banner](https://github-dbrazl.s3.amazonaws.com/shipping-microservice-node/banner.jpg)
+![Banner](https://github-dbrazl.s3.us-east-1.amazonaws.com/api-shipping-microservice/banner.svg?v=1.0.0)
 
 <p align="center">
-  <img src="https://img.shields.io/badge/node-20.15.1-green">
-  <img src="https://img.shields.io/badge/typescript-5.5.4-blue">
-  <img src="https://img.shields.io/badge/docker-27.0.3-darkcyan">
-  <img src="https://img.shields.io/badge/license-MIT-red">
+  Bem-vindo a API de entrega! Este microserviço foi criado para testar inicialmente a integração com os Correios. Como o serviço SOAP dos Correios está fora do ar, integrei a API com o ViaCEP usando o protocolo REST.
 </p>
 
-Bem-vindo a API de entrega! Este microserviço foi criado para testar inicialmente a integração com os Correios. Como o serviço SOAP dos Correios está fora do ar, integrei a API com o Via CEP usando o protocolo REST.
+<br>
+<p align="center">
+  <img src="https://img.shields.io/badge/autor-@dbrazl-FB8C00?style=flat" alt="Autor: @dbrazl">
+</p>
+<br>
 
 ## 🎯 Objetivo
 
-O objetivo deste repositório é servir como um estudo de caso de integração usando o protocolo SOAP para consulta de CEP. Como o serviço dos Correios está fora do ar, substitui o serviço dos correios pelo Via CEP, alcançando o mesmo objetivo mas sem o uso do protocolo SOAP.
+<p align="justify">
+  O objetivo deste repositório é apresentar um estudo de caso de integração para consulta de CEP, projetado inicialmente para o protocolo SOAP e adaptado para o serviço ViaCEP devido à instabilidade dos Correios. A aplicação segue boas práticas de desenvolvimento, com princípios SOLID, injeção de dependência, Clean Code e Clean Architecture, visando uma estrutura sólida e escalável.
+</p>
 
-## ⚙️ Como rodar?
+## 🛠 Tecnologias
 
-Para rodar o projeto, siga os passos abaixo.
+<p align="justify">
+  As tecnologias utilizadas nesse projeto foram:
+</p>
 
-### Clonar repositório
+![Typescript](https://img.shields.io/badge/Typescript-333333?style=flat&logo=typescript)
+![Node.js](https://img.shields.io/badge/Node.js-333333?style=flat&logo=node.js)
+![Express.js](https://img.shields.io/badge/Express.js-333333?style=flat&logo=express&logoColor=black)
+![Zod](https://img.shields.io/badge/Zod-333333?style=flat&logo=zod&logoColor=blue)
+![Inversify](https://img.shields.io/badge/Inversify-333333?style=flat&logo=node.js&logoColor=yellow)
+![Docker](https://img.shields.io/badge/Docker-333333?style=flat&logo=docker)
 
-Primeiro clone o repositório. Você pode fazer isso via CLI com o comando abaixo.
+## 📥 Instalação
+
+Sigo os passo abaixo para pode instalar o projeto na máquina alvo.
+
+### Passo 1: Download
+
+<p align="justify">
+  O primeiro passo é o download do projeto para a máquina alvo. Para isso é necessário que você tenha o Git instalado e uma conta no GitHub.
+</p>
+<p align="justify">
+  Com esses requisitos atendidos, uma das formas de fazer o download dos arquivos do projeto é via SSH. Caso ainda não tenha, cadastre uma chave SSH na máquina alvo e a chave pública no GitHub, e após faça o clone do projeto usando o comando abaixo:
+</p>
 
 ```bash
-git clone git@github.com:dbrazl/shipping-microservice-node.git
+  git clone git@github.com:dbrazl/api-shipping-microservice.git
 ```
 
-### Instalar dependências
+### Passo 2: Instalação de pacotes
 
-Instale as dependências. Para isso, use o **yarn**. Bastar usar o comando abaixo.
+<p align="justify">
+  Para instalar os pacotes do projeto, use o seguinte comando na raiz do projeto:
+</p>
 
 ```bash
-yarn
+  yarn
 ```
 
-### Iniciar o projeto
+<p align="justify">
+  Certifique-se de ter o yarn instalado.
+</p>
 
-Para iniciar o microserviço localmente, você pode iniciar tanto com o auxílio do Docker, quanto diretamente em sua máquina. Eu recomendo iniciar o projeto diretamente na sua máquina, já que essa API não se comunica com outros serviços como por exemplo, um banco de dados ou outros microserviços.
+## 🚀 Como Rodar
 
-#### Inicializar na máquina host
+<p align="justify">
+  Com a etapa de instalação finalizada, você pode iniciar a aplicação tanto diretamente na máquina alvo, quanto com o auxílio do Docker. Por essa API não se comunicar com outros serviços na mesma arquitetura, como por exemplo, um banco de dados ou outros microserviços, eu recomendo iniciar o projeto diretamente na máquina alvo.
+</p>
 
-Para iniciar o projeto, rode o comando abaixo. A API irá iniciar localmente na porta **3000** da sua máquina.
+<p align="justify">
+  Para isso, inicie a aplicação rodando o seguinte comando abaixo:
+</p>
 
 ```bash
-yarn dev
+  yarn dev
 ```
 
-Para parar a aplicação use **CTRL + C** no terminal onde a aplicação está rodando.
-
-#### Inicializar em um container
-
-Para iniciar o projeto, primeiro crie uma imagem Docker com o comando abaixo. Você deve estar na raiz do projeto ao rodar o comando abaixo. Ele lerá o arquivo Dockerfile e criará uma imagem para o projeto.
+<p align="justify">
+  Caso prefira usa o Docker, certifique-se que ele está instalado na máquina alvo, e crie uma imagem Docker para aplicação com o comando abaixo:
+</p>
 
 ```bash
-docker build -f Dockerfile.dev -t shipping-microservice .
+  docker build -f Dockerfile.dev -t shipping-microservice .
 ```
 
-Com a criação da imagem, inicie o container com o comando:
+<p align="justify">
+  Você deve estar na raiz do projeto ao rodar o comando. Ele lerá o arquivo Dockerfile e criará uma imagem de nome <strong>shipping-microservice</strong> para o projeto.
+</p>
+
+<p align="justify">
+  Com a criação da imagem, inicie o container com o comando:
+</p>
 
 ```bash
-docker run -d -p 3000:3000 --name shipping-microservice shipping-microservice
+  docker run -d -p 3000:3000 --name shipping-microservice shipping-microservice
 ```
 
-Ele irá criar um container e o iniciar em segundo plano na porta **3000** da sua máquina. O **--name** dá nome ao container que é o mesmo da imagem que segue ele no comando acima.
+<p align="justify">
+  Isso fara que um novo container com nome <strong>shipping-microservice</strong> seja criado a partir da imagem criada anteriormente de mesmo nome, e inicia-lo em segundo plano na porta <strong>3000</strong> da máquina alvo.
+</p>
 
-Agora verifique se o container está em execução via:
+<p align="justify">
+  Agora verifique se o container está em execução via:
+</p>
 
 ```bash
-docker ps
+  docker ps
 ```
 
-Se tudo tiver ocorrido bem, a aplicação estará de pé e poderá ser acessada na porta **3000** da sua máquina.
+<p align="justify">
+  Se tudo tiver ocorrido bem, a aplicação estará de pé e poderá ser acessada na porta <strong>3000</strong> da máquina alvo.
+</p>
 
-Para desligar o container, você pode usar o comando abaixo.
+<p align="justify">
+  Para desligar o container, você pode usar o comando abaixo:
+</p>
 
 ```bash
-docker stop shipping-microservice
+  docker stop shipping-microservice
 ```
 
-Caso tenha tido problema durante a criação do container, você pode deletá-lo pelo comando abaixo, e recriá-lo seguindo os passos anteriores.
+<p align="justify">
+  Caso tenha tido problema durante a criação do container, você pode deletá-lo pelo comando abaixo, e recriá-lo seguindo os passos anteriores.
+</p>
 
 ```bash
-docker rm shipping-microservice
+  docker rm shipping-microservice
 ```
 
-O mesmo pode ser feito para a imagem. Caso algo tenha dado errado, use o comando abaixo, e a recrie usando os passos anteriores.
+<p align="justify">
+  O mesmo pode ser feito para a imagem. Caso algo tenha dado errado, use o comando abaixo, e a recrie usando os passos anteriores.
+</p>
 
 ```bash
-docker rmi shipping-microservice
+  docker rmi shipping-microservice
 ```
 
 ## 📚 Documentação
 
-Foi optado desenvolver uma documentação simples apenas da interface de programação de aplicação. A documentação da API pode ser acessada em [DOCUMENTATION.md](./DOCUMENTATION.md).
+<p align="justify">
+  Siga os links abaixo para ter acesso a(s) documentação(ões) do projeto.
+</p>
 
-## 💻 Design de Software
-
-Adotei os princípios do SOLID, injeção de dependência e o Clean Architecture para o desenvolvimento do microserviço.
-
-## 🛠 Tecnologias Utilizadas
-
-- Typescript
-- Node.js
-- Docker
+- [Documentação de API](./docs/API_DOCUMENTATION.md)
 
 ## 📬 Contato
 
-Se você tiver dúvidas ou sugestões, pode me encontrar em daniel.braz@vyox.io ou através do [LinkedIn](https://www.linkedin.com/in/dbrazl/).
-
-Espero que este repositório seja útil para estudantes, pesquisadores e profissionais interessados em desenvolver APIs com Node.js. Vamos aprender e evoluir juntos!
-
-## 📜 Licença
-
-Este projeto está licenciado sob a Licença MIT - veja o arquivo <a href="./LICENSE.md">LICENSE.md</a> para mais detalhes.
-
----
-
-Obrigado por visitar!
+<p align="justify">
+  Se você tiver dúvidas ou sugestões, pode me encontrar em <a href="mailto:daniel.braz@vyox.io">daniel.braz@vyox.io</a> ou através do <a href="https://www.linkedin.com/in/dbrazl/">LinkedIn</a>.
+</p>
